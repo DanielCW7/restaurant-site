@@ -5,9 +5,8 @@ const Nav = () => {
         <nav>
             <div>lemonz</div>
             <ul className="flex">
-                <li>search</li>
-                <li>profile</li>
-                <li>products</li>
+                <a href="/search"><li>search</li></a>
+                <a href="/profile"><li>profile</li></a>
             </ul>
         </nav>
     )
