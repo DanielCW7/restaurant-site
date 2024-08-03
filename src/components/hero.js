@@ -9,7 +9,7 @@ const Hero = () => {
                     <p> Check out all sorts of nearby restaurants and reserve for every special occasion with ease. </p>                    
                     <button className="btn btn-primary mt-8"> Find restaurants </button>
                 </div>
-                <div className="flex-1">
+                <div className="hidden flex-1 sm:flex">
 
                 </div>
             </header>            

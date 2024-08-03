@@ -39,8 +39,7 @@ const Form = () => {
         <div className="bg-base-100">
 
             <div className="container max-w-6xl h-auto m-auto justify-center flex flex-col md:flex-row gap-12 ">
-
-                <form onSubmit={handleSubmit} className="flex flex-col max-w-xl w-full gap-12 p-12 shadow rounded-xl shadow-xl border">
+                <form onSubmit={handleSubmit} className="flex flex-col max-w-xl w-full gap-12 p-12 rounded-xl shadow-xl">
                     <h4 className="text-2xl text-center"> Reserve a table </h4>
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
                         <label> Choose time </label>
@@ -91,7 +90,6 @@ const Form = () => {
 
                     
                 </form>
-
             </div>
 
         </div>
