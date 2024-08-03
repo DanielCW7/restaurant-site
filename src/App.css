@@ -1,5 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
-  padding: 18px;
+  
+}
+
+.container {
+  padding: 19px;
 }
 
 .App-logo {

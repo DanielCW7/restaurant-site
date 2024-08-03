@@ -1,17 +1,21 @@
 import './App.css';
-import Nav from "./components/nav.js"
-import Hero from "./components/hero.js"
+import React from 'react';
 import Home from './pages/home.js';
 import Search from './pages/search.js';
 import { Route, Routes } from 'react-router-dom';
 
+export const UserContext = React.createContext(null)
+
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route exact path='/' element={<Home />}/>
-        <Route exact path='/search' element={<Search />}/>
-      </Routes>
+        <UserContext.Provider value={{user: 'defaultUser'}}>
+          <Routes>
+              <Route exact path='/' element={<Home />}/>
+              <Route exact path='/search' element={<Search />}/> 
+
+          </Routes>
+        </UserContext.Provider>
     </div>
   );
 }
