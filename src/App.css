@@ -2,13 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.heading-font {
+  font-family: "Arbutus Slab", serif;
+}
+
+p {
+  font-family: "Athiti", sans-serif;
+}
+
 .App {
   
 }
 
 .container {
-  padding: 19px;
+  padding: 18px;
 }
+
+.visible { opacity: 1 }
+.invisible { opacity: 0}
 
 .App-logo {
   height: 40vmin;

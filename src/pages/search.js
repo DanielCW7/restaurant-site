@@ -1,9 +1,7 @@
-import Nav from "../components/nav"
-import Hero from "../components/hero"
+import Hero from "../components/section/hero"
 const Search = () => {
     return (
         <div className="App">
-            <Nav />
             <Hero />
             <p>Search</p>
         </div>

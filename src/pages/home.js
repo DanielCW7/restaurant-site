@@ -1,11 +1,11 @@
-import Nav from "../components/nav"
-import Hero from "../components/hero"
+import Hero from "../components/section/hero"
 import Form from "../components/form"
+import Process from "../components/section/process"
 const Home = () => {
     return (
         <div className="App">
-            <Nav />
             <Hero />
+            <Process />
             <Form />
         </div>
     )
