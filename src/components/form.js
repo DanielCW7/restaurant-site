@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { UserContext } from "../App";
 import Toast from "./toast";
+import { json } from "react-router-dom";
 // booking form
 const Form = () => {
     
@@ -30,7 +31,9 @@ const Form = () => {
     };
     const submitAPI = function(e) { 
         e.preventDefault()
-        
+        localStorage.setItem("Reservation", JSON.stringify(isDetails))
+        const storage = localStorage.getItem("Reservation")
+        console.log(storage, isDetails)
         setToast({ message: 'Form submitted successfully', type: 'success'})
         setTimeout(() => {
             setToast({ message: '', type: ''})
@@ -54,26 +57,23 @@ const Form = () => {
     const [isToast, setToast] = useState({ message: '', type: ''})
 
 
-
-
     const handleChange = (field) => {
         setDetails({...isDetails, [field.target.name]: field.target.value})
-        console.log(isDetails)
     }
 
     return (
 
-        <div className="bg-base-100">
+        <div className="bg-base-100" id="bookingForm">
             <Toast message={isToast.message} type={isToast.type} onclose={() => setToast({message: '', type: ''})} />
 
 
             <div className="container max-w-6xl h-auto m-auto justify-center flex flex-col md:flex-row gap-12 ">
-                <form onSubmit={submitAPI} className="flex flex-col max-w-xl w-full gap-12 p-12 rounded-xl shadow-xl">
+                <form onSubmit={submitAPI} className="flex flex-col max-w-xl w-full gap-8 p-12 rounded-xl shadow-xl m-auto">
                     <h4 className="text-2xl text-center heading-font"> Reserve a table </h4>
                    
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
                         <label htmlFor='date'> Choose a day </label>
-                        <input type="date" className="" htmlFor='res-date' onChange={handleChange} name='date' id='date' />
+                        <input type="date" className="input input-bordered" htmlFor='res-date' onChange={handleChange} name='date' id='date' required/>
                          
                     </div>
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
@@ -84,7 +84,7 @@ const Form = () => {
                     </div>
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
                         <label> Number of guests: {isDetails ? isDetails.guests : null} </label>
-                        <input type="range" min={1} max={20} className="range" step={1} id="guests" name="guests" onChange={handleChange}/>
+                        <input type="range" min={1} max={20} className="range" step={1} id="guests" name="guests" onChange={handleChange} required/>
                             <div className="flex w-full justify-between px-2 text-xs">
                             <span>1</span>
                             <span>|</span>
@@ -117,10 +117,10 @@ const Form = () => {
                             <option> Birthday </option>
                             <option> Meeting </option>
                             <option> Proposal </option>
-                            <option> N/A </option>
+                            <option selected> N/A </option>
                         </select>                         
                     </div>
-                    <input className="btn btn-secondary btn-wide m-auto" type='submit' value='Reserve' id='bookingForm'/>
+                    <input className="btn btn-secondary btn-wide m-auto" type='submit' value='Reserve' id='bookingForm' data-testid="bookingForm-input"/>
                     
                 </form>
             </div>
