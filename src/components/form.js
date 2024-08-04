@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { UserContext } from "../App";
+import Toast from "./toast";
 // booking form
 const Form = () => {
-
+    
     const seededRandom = function (seed) {
         var m = 2**35 - 31;
         var a = 185852;
@@ -29,7 +30,11 @@ const Form = () => {
     };
     const submitAPI = function(e) { 
         e.preventDefault()
-        return true; 
+        
+        setToast({ message: 'Form submitted successfully', type: 'success'})
+        setTimeout(() => {
+            setToast({ message: '', type: ''})
+        }, 5000)
     };
 
     const initialValues = {
@@ -46,6 +51,7 @@ const Form = () => {
     
     const [isAvailable, setAvailable] = useState([])
     const [isDetails, setDetails] = useState(initialValues);
+    const [isToast, setToast] = useState({ message: '', type: ''})
 
 
 
@@ -55,26 +61,11 @@ const Form = () => {
         console.log(isDetails)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.table(isDetails)
-    }
-
- 
-
-// setData(...initialValues, [param.target.name]: param.target.value)
     return (
 
         <div className="bg-base-100">
+            <Toast message={isToast.message} type={isToast.type} onclose={() => setToast({message: '', type: ''})} />
 
-                {
-
-                }
-                <div className="toast toast-center toast-top">
-                    <div className="alert alert-success">
-                        <span className="text-white"> Reservation submitted! </span>
-                    </div>
-                </div>
 
             <div className="container max-w-6xl h-auto m-auto justify-center flex flex-col md:flex-row gap-12 ">
                 <form onSubmit={submitAPI} className="flex flex-col max-w-xl w-full gap-12 p-12 rounded-xl shadow-xl">
