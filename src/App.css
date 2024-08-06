@@ -11,6 +11,10 @@ p {
   font-family: "Athiti", sans-serif;
 }
 
+img {
+  aspect-ratio: 16/9;
+}
+
 .container {
   padding: 18px;
 }

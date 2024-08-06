@@ -78,7 +78,7 @@ const Form = () => {
                     </div>
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
                         <label htmlFor='time'> Choose a time </label>
-                        <select className="select select-bordered" htmlFor='res-date' onChange={handleChange} name='time' id='time'>
+                        <select className="select select-bordered" htmlFor='res-date' onChange={handleChange} name='time' id='time' required>
                             { isAvailable ? isAvailable.map((date) => <option> {date} </option>) : <option> No times available for this day </option> }
                         </select>
                     </div>
@@ -110,14 +110,14 @@ const Form = () => {
                     </div>
                     <div className="flex flex-col gap-2 max-w-96 w-full m-auto">
                         <label> What's the occasion? </label>
-                        <select className="select select-bordered" name='occasion' id='occasionc' onChange={handleChange}>
+                        <select className="select select-bordered" name='occasion' id='occasionc' onChange={handleChange} required>
                             <option> Anniversary </option>
                             <option> Birthday </option>
                             <option> Date </option>
                             <option> Birthday </option>
                             <option> Meeting </option>
                             <option> Proposal </option>
-                            <option selected> N/A </option>
+                            <option> N/A </option>
                         </select>                         
                     </div>
                     <input className="btn btn-secondary btn-wide m-auto" type='submit' value='Reserve' id='bookingForm' data-testid="bookingForm-input"/>
