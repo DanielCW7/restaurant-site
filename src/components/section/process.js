@@ -6,11 +6,6 @@ import { useEffect, useState } from "react"
 
 const Process = () => {
  
-    
-    useEffect(() => {
-
-    }, [])
-
     return (
         <section className="bg-accent">
             <div className="container flex-col md:flex-row flex max-w-6xl m-auto gap-8 p-">
