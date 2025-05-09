@@ -15,8 +15,6 @@ function App() {
           <Nav />
           <Routes>
               <Route exact path='/' element={<Home />}/>
-              <Route exact path='/search' element={<Search />}/> 
-
           </Routes>
           <Footer />
         </UserContext.Provider>
